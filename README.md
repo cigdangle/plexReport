@@ -3,6 +3,15 @@ plexWeeklyReport
 
 Scripts to generate a weekly email of new additions to Plex.
 
+An updated version of bstascavage's original plexReport (https://github.com/bstascavage/plexReport)
+
+## Updates
+- Email template Rewritten, compressed, cleaned, fixed Gmail truncating issue
+- Updated En Locale
+- Fixed OMDB Year issue
+- Fixed loop issue if TV show not found in TheTVDB
+- Updated Readme, added CentOS instructions
+
 ## Introduction
 This script is meant to send out a summary of all new Plex entries to your server to all of your server's users.  
 
@@ -10,6 +19,7 @@ This script is meant to send out a summary of all new Plex entries to your serve
 * Debian
 * Ubuntu 14.04 LTS
 * Mac OSX
+* CentOS
 
 ## Supported Email Clients
 * Gmail
@@ -30,11 +40,18 @@ The following are needed to run this script:
 3.  thetvdb.org set as your Agent for your TV section on your Plex server.
 4.  (Optional) A Gmail account to forward the email (Gmail is the only supported provider, so if you use another, YMMV).
 
+## CentOS Prerequisites
+```
+sudo yum group install "Development Tools"
+sudo yum install -y ruby ruby-devel rubygems
+bundle update json
+```
+
 ## Installation (Linux)
 
 1.  Clone this repo on your server:
 
-    `git clone https://github.com/bstascavage/plexReport.git`
+    `git clone https://github.com/codermjb/plexReport.git`
 2.  Change to the plexReport directory
 3.  Run the initial_setup script:
 
@@ -47,7 +64,7 @@ Part 1: Install plexReport
 
 1.  Clone this repo on your server:
 
-    `git clone https://github.com/bstascavage/plexReport.git`
+    `git clone https://github.com/codermjb/plexReport.git`
 2.  Change to the plexReport directory
 3.  Install the blunder gem (http://bundler.io/)
 

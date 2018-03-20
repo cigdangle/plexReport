@@ -44,23 +44,7 @@ class TheTVDB
         $logger.debug("Response from thetvdb for query #{query}: Code: #{response.code}.")
 
         if response.code != 200
-            if response.nil?
-                return 'nil'
-            end
-            while $retry_attempts < 3 do
-                $logger.error("Could not connect to thetvdb.com.  Will retry in 30 seconds")
-                sleep(30)
-                $retry_attempts += 1
-                $logger.debug("Retry attempt: #{$retry_attempts} for query #{query}")
-                if self.get(query).code == 200
-                    break
-                end
-            end
-            if $retry_attempts >= 5
-                $logger.error("Could not connect to thetvdb.  Exiting script.  If you are constantly seeing this, please turn on debugging and open an issue.")
-                $logger.debug("Failed to connect to thetvdb for query: #{query}")
-                exit
-            end
+           return 'nil'
         end
 
         $retry_attempts = 0
